@@ -18,7 +18,6 @@ app.post('/' , async (req,res)=>{
              const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=metric`
              const response = await axios.get(url);
              const temperature = await (response.data.main.temp);
-             console.log(response.data)
              res.status(200).send(`The temperature in ${city} is ${temperature} degree celsius`);
            } catch (error) {
              res.status(400).json({
